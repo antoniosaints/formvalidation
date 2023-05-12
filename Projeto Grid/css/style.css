@@ -1,0 +1,44 @@
+html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: darkgoldenrod;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 8fr 1fr;
+            grid-template-areas:
+                "h h2"
+                "b b"
+                "f f";
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .header {
+            grid-area: h;
+            background-color: rgb(74, 48, 192);
+            padding-left: 20px;
+        }
+
+        .header_continuos {
+            grid-area: h2;
+            background-color: blue;
+        }
+
+        .header>h3 {
+            color: white;
+        }
+
+        .footer {
+            grid-area: f;
+            background-color: rgb(74, 48, 192);
+        }
+
+        .body {
+            grid-area: b;
+            background-color: antiquewhite;
+        }

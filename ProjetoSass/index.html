@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>Modais</title>
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn" onclick="toggleModalBySaints()">Abrir ModalBySaints</button>
+    </div>
+    <div class="modalBySaints" style="display: none;" id="modalBySaints-inicio">
+        <div class="modalBySaints-frame">
+            <div class="modalBySaints-header">
+                <div class="modalBySaints-close" onclick="toggleModalBySaints()">X</div>
+            </div>
+            <div class="modalBySaints-body">
+            </div>
+            <div class="modalBySaints-footer">
+                <button class="modalBySaints">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleModalBySaints() {
+            let modalBySaints = document.getElementById('modalBySaints-inicio');
+            modalBySaints.style.display == 'none' ? modalBySaints.style.display = 'flex' : modalBySaints.style.display = 'none'
+        }
+    </script>
+</body>
+
+</html>

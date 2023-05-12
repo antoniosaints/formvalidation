@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Yanone+Kaffeesatz:wght@600&display=swap');
+
+$primary_color: rgb(169,29,244);
+$secondary_color: rgb(21, 114, 156);
+$thirdy_color: rgb(11, 48, 129);
+$bg-gradient: linear-gradient(166deg, rgba(169,29,244,1) 10%, rgba(4,0,255,1) 47%, rgba(0,249,255,1) 100%);
+
+$font-weight: ( //maps
+    "regular": 400,
+    "medium": 500,
+    "bold": 800
+);
+
+$font-family: (
+    "padrao": "arial",
+    "Poppins": "Poppins"
+);

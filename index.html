@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Manipulação de Polígonos com a API do Google Maps</title>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHWYrGl7eWIxAoQP13854ZqL-FadIh-Uw&callback=initMap&libraries=drawing,geometry"
+    async defer></script>
+  <script>
+    var map, polygon;
+
+    function initMap() {
+      // Cria o mapa com o centro em São Paulo
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -23.5505, lng: -46.6333 },
+        zoom: 13
+      });
+
+      // Cria um polígono vazio
+      polygon = new google.maps.Polygon({
+        map: map,
+        editable: true // Permite edição do polígono
+      });
+
+      // Adiciona um ouvinte de eventos de clique no mapa
+      map.addListener('click', function (event) {
+        addPointToPolygon(event.latLng); // Adiciona um ponto ao polígono
+      });
+
+      // Adiciona um ouvinte de eventos de clique ao botão para excluir o polígono
+      document.getElementById('delete-button').addEventListener('click', function () {
+        deletePolygon(); // Exclui o polígono
+      });
+
+      // Adiciona um ouvinte de eventos de clique ao botão para alterar a cor do polígono
+      document.getElementById('color-button').addEventListener('click', function () {
+        changePolygonColor(); // Altera a cor do polígono
+      });
+    }
+
+    function addPointToPolygon(latLng) {
+      var path = polygon.getPath(); // Obtém o caminho do polígono
+      path.push(latLng); // Adiciona o ponto ao caminho
+    }
+
+    function deletePolygon() {
+      polygon.setMap(null); // Remove o polígono do mapa
+      polygon = new google.maps.Polygon({
+        map: map,
+        editable: true // Cria um novo polígono vazio para permitir edição posterior
+      });
+    }
+
+    function changePolygonColor() {
+      polygon.setOptions({
+        fillColor: 'red',
+        strokeColor: 'blue'
+      });
+    }
+  </script>
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body onload="initMap()">
+  <div id="map"></div>
+  <button id="delete-button">Excluir Polígono</button>
+  <button id="color-button">Alterar Cor do Polígono</button>
+</body>
+
+</html>
